@@ -33,7 +33,7 @@ feature_extract = True
 
 get_label =lambda x: 0 if x=='safe' else 1
 
-class AdultDataset(Dataset):
+class BloodDataset(Dataset):
     def __init__(self, data_root,data_transform=None):
         self.imgs = []
         self.labels=[]
@@ -103,8 +103,8 @@ data_transforms = {
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ]),
 }
-train_dataset=AdultDataset('./data/train/',data_transforms['train'])
-valid_dataset=AdultDataset('./data/valid/',data_transforms['val'])
+train_dataset=BloodDataset('./data/train/',data_transforms['train'])
+valid_dataset=BloodDataset('./data/valid/',data_transforms['val'])
 
 print('Training Dataset Length:',len(train_dataset))
 print('Validation Dataset Length:',len(valid_dataset))
